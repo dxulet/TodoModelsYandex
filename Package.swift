@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "TodoModelsYandex",
             dependencies: []),
-        .testTarget(
-            name: "TodoModelsYandexTests",
-            dependencies: ["TodoModelsYandex"]),
     ]
 )
