@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum Priority: String {
+public enum Priority: String {
     case low
     case medium
     case high
 }
 
-enum JsonKeys {
+public enum JsonKeys {
     static let taskId = "id"
     static let taskText = "text"
     static let taskPriority = "priority"
@@ -23,7 +23,7 @@ enum JsonKeys {
     static let taskChangedAt = "changed_at"
 }
 
-struct TodoItem {
+public struct TodoItem {
     let id: String
     let text: String
     let priority: Priority

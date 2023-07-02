@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum FileCacheError: Error {
+public enum FileCacheError: Error {
     case notFound
     case notSupported
     case failedToRead
     case failedToWrite
 }
 
-class FileCache {
+public class FileCache {
     private enum Constants {
         static let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     }

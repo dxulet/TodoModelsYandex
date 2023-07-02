@@ -1,3 +1,5 @@
 # TodoModelsYandex
 
-A description of this package.
+## Installation
+
+To install the package, import "https://github.com/dxulet/TodoModelsYandex.git" in SPM.
