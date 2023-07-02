@@ -24,15 +24,15 @@ public enum JsonKeys {
 }
 
 public struct TodoItem {
-    let id: String
-    let text: String
-    let priority: Priority
-    let deadline: Date?
-    var isCompleted: Bool
-    let createdAt: Date
-    let changedAt: Date?
+    public let id: String
+    public let text: String
+    public let priority: Priority
+    public let deadline: Date?
+    public var isCompleted: Bool
+    public let createdAt: Date
+    public let changedAt: Date?
 
-    init(id: String = UUID().uuidString, text: String, priority: Priority, deadline: Date? = nil, isCompleted: Bool, createdAt: Date, changedAt: Date? = nil) {
+    public init(id: String = UUID().uuidString, text: String, priority: Priority, deadline: Date? = nil, isCompleted: Bool, createdAt: Date, changedAt: Date? = nil) {
         self.id = id
         self.text = text
         self.priority = priority
@@ -44,7 +44,7 @@ public struct TodoItem {
 }
 
 extension TodoItem {
-    static func parse(json: Any) -> TodoItem? {
+    public static func parse(json: Any) -> TodoItem? {
         guard let dict = json as? [String: Any] else {
             return nil
         }
@@ -63,7 +63,7 @@ extension TodoItem {
         return TodoItem(id: id, text: text, priority: priority, deadline: deadline, isCompleted: isCompleted, createdAt: createdAt, changedAt: changedAt)
     }
 
-    var json: Any {
+    public var json: Any {
         var jsonDict: [String: Any] = [:]
         jsonDict[JsonKeys.taskId] = id
         jsonDict[JsonKeys.taskText] = text
@@ -86,7 +86,7 @@ extension TodoItem {
         return jsonDict
     }
 
-    var csv: String {
+    public var csv: String {
         var csvString = "id,text,priority,deadline,isCompleted,createdAt,changedAt\n"
 
         let deadlineString = deadline != nil ? "\(Int(deadline!.timeIntervalSince1970))" : ""
@@ -102,7 +102,7 @@ extension TodoItem {
         return csvString
     }
 
-    static func parse(csv: String) -> TodoItem? {
+    public static func parse(csv: String) -> TodoItem? {
         let rows = csv.components(separatedBy: "\n")
         guard rows.count > 1 else {
             return nil
