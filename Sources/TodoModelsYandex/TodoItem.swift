@@ -10,7 +10,7 @@ import Foundation
 public enum Priority: String {
     case low
     case medium = "basic"
-    case high
+    case high = "important"
 }
 
 public enum TodoItemKeys {
